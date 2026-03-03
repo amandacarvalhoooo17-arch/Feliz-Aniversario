@@ -65,7 +65,7 @@ img{
 <button onclick="verificarResposta()">Responder</button>
 
 <div id="surpresa">
-<h2>ACERTOU MEU AMOR❤️</h2>
+<h2>ACERTOU MEU AMOR ❤️</h2>
 
 <img src="euiela.jpeg">
 
@@ -82,27 +82,28 @@ Eu te amo infinitamente ❤️
 </div>
 
 <script>
-
 function verificarSenha(){
-    var senha = document.getElementById("senha").value;
+    var senha = document.getElementById("senha").value.trim();
 
     if(senha == "14/12/2024"){
         document.getElementById("quiz").style.display = "block";
+        document.getElementById("senha").value = ""; // limpa o input
     }else{
         alert("Senha incorreta 😏");
     }
 }
 
 function verificarResposta(){
-    var resposta = document.getElementById("resposta").value.toLowerCase();
+    var resposta = document.getElementById("resposta").value.trim().toLowerCase();
 
-    if(resposta == "banheiro da pizzaria"){
+    if(resposta == "banheiro da pizzaria"){  
         document.getElementById("surpresa").style.display = "block";
+        document.getElementById("resposta").value = ""; // limpa input
+        document.getElementById("quiz").scrollIntoView({behavior: "smooth"}); // rola pra surpresa
     }else{
         alert("Hmmmm 🤨 tenta de novo, amor");
     }
 }
-
 </script>
 
 </body>
