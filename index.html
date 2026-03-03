@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Surpresa Secreta 💖</title>
+
+<style>
+body{
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    text-align:center;
+    font-family: Arial;
+    padding: 40px;
+}
+
+.caixa{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    display:inline-block;
+}
+
+button{
+    padding:10px 20px;
+    background:hotpink;
+    border:none;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#quiz{
+    display:none;
+}
+
+#surpresa{
+    display:none;
+    margin-top:20px;
+}
+
+img{
+    width:300px;
+    border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caixa">
+
+<h1>Área Secreta 🔐</h1>
+
+<p>Digite a senha para entrar:</p>
+<input type="password" id="senha">
+<br><br>
+<button onclick="verificarSenha()">Entrar</button>
+
+<div id="quiz">
+
+<h2>Quiz da Nossa História 💖</h2>
+
+<p>Onde foi nosso primeiro beijo?</p>
+<input type="text" id="resposta">
+<br><br>
+<button onclick="verificarResposta()">Responder</button>
+
+<div id="surpresa">
+<h2>ACERTOU MEU AMOR 😭❤️</h2>
+
+<img src="">
+
+<p>
+Feliz aniversário, meu amor 💖<br><br>
+Você é a melhor parte da minha vida.<br>
+Obrigada por existir e ser minha pessoa favorita.<br><br>
+Eu te amo infinitamente ❤️
+</p>
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+function verificarSenha(){
+    var senha = document.getElementById("senha").value;
+
+    if(senha == "14/12/2024"){
+        document.getElementById("quiz").style.display = "block";
+    }else{
+        alert("Senha incorreta 😏");
+    }
+}
+
+function verificarResposta(){
+    var resposta = document.getElementById("resposta").value.toLowerCase();
+
+    if(resposta == "coloque aqui a resposta certa"){
+        document.getElementById("surpresa").style.display = "block";
+    }else{
+        alert("Hmmmm 🤨 tenta de novo, amor");
+    }
+}
+
+</script>
+
+</body>
+</html>
