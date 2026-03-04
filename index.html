@@ -2,108 +2,118 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Surpresa Secreta 💖</title>
+<title>Para o Amor da Minha Vida 💖</title>
 
 <style>
 body{
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin:0;
+    padding:0;
     text-align:center;
     font-family: Arial;
-    padding: 40px;
-}
-
-.caixa{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    display:inline-block;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    overflow:hidden;
 }
 
 button{
-    padding:10px 20px;
+    padding:15px 25px;
+    font-size:18px;
     background:hotpink;
-    border:none;
     color:white;
-    border-radius:10px;
+    border:none;
+    border-radius:12px;
     cursor:pointer;
 }
 
-#quiz{
+#conteudo, #senhaArea, #surpresa{
     display:none;
-}
-
-#surpresa{
-    display:none;
-    margin-top:20px;
+    margin-top:30px;
 }
 
 img{
     width:300px;
     border-radius:15px;
 }
+
+.heart{
+    position: fixed;
+    top:-10px;
+    font-size:20px;
+    animation: cair 5s linear infinite;
+}
+
+@keyframes cair{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(100vh);}
+}
 </style>
 </head>
 
 <body>
 
-<div class="caixa">
+<h1>Clique se me ama 💖</h1>
+<button onclick="iniciar()">Entrar</button>
 
-<h1>Área Secreta 🔐</h1>
+<div id="conteudo">
+    <div id="senhaArea">
+        <h2>Digite a senha 🔐</h2>
+        <input type="password" id="senha">
+        <br><br>
+        <button onclick="verificarSenha()">Confirmar</button>
+    </div>
 
-<p>Digite a senha para entrar:</p>
-<input type="password" id="senha">
-<br><br>
-<button onclick="verificarSenha()">Entrar</button>
+    <div id="surpresa">
+        <h2>Feliz Aniversário, meu amor 😭❤️</h2>
 
-<div id="quiz">
+        <img src="foto.jpg"> <!-- COLOQUE A FOTO DE VOCÊS AQUI -->
 
-<h2>Quiz da Nossa História 💖</h2>
-
-<p>Onde foi nosso primeiro beijo?</p>
-<input type="text" id="resposta">
-<br><br>
-<button onclick="verificarResposta()">Responder</button>
-
-<div id="surpresa">
-<h2>ACERTOU MEU AMOR ❤️</h2>
-
-<img src="euiela.jpeg">
-
-<p>
-Feliz aniversário, meu amor 💖<br><br>
-Você é a melhor parte da minha vida.<br>
-Obrigada por existir e ser minha pessoa favorita.<br><br>
-Eu te amo infinitamente ❤️
-</p>
-
-</div>
+        <p>
+        Você é a melhor parte da minha vida.<br><br>
+        Desde o primeiro dia, meu coração é seu.<br>
+        Que seu aniversário seja tão lindo quanto você.<br><br>
+        Eu te amo infinitamente ❤️
+        </p>
+    </div>
 </div>
 
-</div>
+<!-- ESPAÇO PARA A MÚSICA -->
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
 <script>
+
+function iniciar(){
+    document.getElementById("conteudo").style.display = "block";
+    document.getElementById("senhaArea").style.display = "block";
+    document.getElementById("musica").play();
+    criarCoracoes();
+}
+
 function verificarSenha(){
     var senha = document.getElementById("senha").value.trim();
-
     if(senha == "14/12/2024"){
-        document.getElementById("quiz").style.display = "block";
-        document.getElementById("senha").value = ""; // limpa o input
-    }else{
+        document.getElementById("surpresa").style.display = "block";
+    } else {
         alert("Senha incorreta 😏");
     }
 }
 
-function verificarResposta(){
-    var resposta = document.getElementById("resposta").value.trim().toLowerCase();
+function criarCoracoes(){
+    setInterval(function(){
+        var heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random()*3+2) + "s";
+        document.body.appendChild(heart);
 
-    if(resposta == "banheiro da pizzaria"){  
-        document.getElementById("surpresa").style.display = "block";
-        document.getElementById("resposta").value = ""; // limpa input
-        document.getElementById("quiz").scrollIntoView({behavior: "smooth"}); // rola pra surpresa
-    }else{
-        alert("Hmmmm 🤨 tenta de novo, amor");
-    }
+        setTimeout(function(){
+            heart.remove();
+        },5000);
+
+    },300);
 }
+
 </script>
 
 </body>
